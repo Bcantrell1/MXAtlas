@@ -1,10 +1,19 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database import SessionLocal, get_db
 from models import Track
 
 app = FastAPI()
+
+app.add_middleware(
+		CORSMiddleware,
+		allow_origins=["*"],
+		allow_credentials=True,
+		allow_methods=["*"],
+		allow_headers=["*"],
+)	
 
 @app.get("/tracks")
 def get_tracks(type: str = None, country: str = None, difficulty: str = None, db: Session = Depends(get_db)):
