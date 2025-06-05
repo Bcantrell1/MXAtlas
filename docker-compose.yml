@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./api/.env
+    networks:
+      - mxatlas-network
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    env_file:
+      - ./client/.env
+    depends_on:
+      - backend
+    networks:
+      - mxatlas-network
+
+networks:
+  mxatlas-network:
+    driver: bridge
