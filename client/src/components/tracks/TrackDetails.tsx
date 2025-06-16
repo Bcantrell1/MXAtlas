@@ -7,7 +7,7 @@ interface TrackDetailsProps {
 
 export const TrackDetails: React.FC<TrackDetailsProps> = ({ track, onClose }) => {
   return (
-    <div className="absolute bottom-0 right-0 bg-gray-200 p-4 rounded shadow-lg">
+    <div className="absolute w-full bottom-0 right-0 bg-gray-200 p-4 rounded shadow-lg">
       <h2 className="text-xl font-bold">{track.name}</h2>
       <p>{track.description}</p>
       <p>Location: {track.location}</p>
