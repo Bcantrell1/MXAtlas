@@ -24,7 +24,7 @@ export const TrackEntity: React.FC<TrackEntityProps> = ({ track, onSelect }) => 
       <BillboardGraphics
         // lets update this to a custom image based on the track later.
         image="/cesium/Assets/Textures/maki/circle-stroked.png"
-        scale={0.5}
+        scale={0.3}
       />
     </Entity>
   );
